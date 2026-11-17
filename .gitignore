@@ -255,3 +255,14 @@ tutorial/ts/
 
 # Cover art drafts (published assets live elsewhere)
 think_stats_3e_cover*.jpg
+
+# VS Code
+*.code-workspace
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+._*

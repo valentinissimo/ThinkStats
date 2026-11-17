@@ -1,9 +1,10 @@
 # Keeping forked v3 clean and updated with origin/v3.
 
-**Fork workflow convention:** `origin` = your fork, `upstream` = their repo (the original repo I forked from).
+**Fork workflow convention:** `origin` = your fork, `upstream` = the original repo (AllenDowney/ThinkStats) I forked from.
 
 Local set-up:
 
+```text
 v3
 ├── notebooks from Allen Downey
 └── stays close to upstream
@@ -11,6 +12,7 @@ v3
 study (branch)
 ├── inherits latest v3
 └── has folder my_nb which include copy of folder nb
+```
 
 Copying nb to folder my_nb avoids that my exercises create merge conflicts later: `cp -r nb my_nb`
 

@@ -1,4 +1,4 @@
-"""
+r"""
 my_env_setup.py - Environment & Path Setup Module for ThinkStats Notebooks
 
 Why this module is necessary:

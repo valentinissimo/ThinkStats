@@ -2,10 +2,48 @@
 my_env_setup.py - Environment & Path Setup Module for ThinkStats Notebooks
 
 Why this module is necessary:
-    Notebooks live in `nb/`, but raw datasets live in `data/`.
-    Importing this module solves two distinct Python requirements simultaneously:
-      1. sys.path modification -> Allows importing `.py` scripts (thinkstats.py, nsfg.py) from `nb/`.
-      2. os.chdir modification -> Allows loading raw data files (2002FemPreg.dct, etc.) from `data/`.
+    ThinkStats includes both project-specific Python modules
+    (e.g. thinkstats.py, nsfg.py) and raw data files
+    (e.g. 2002FemPreg.dct, 2002FemPreg.dat).
+
+    Importing this module solves two distinct Python requirements
+    simultaneously:
+
+      1. sys.path modification
+         -> Allows importing local ThinkStats modules.
+
+      2. os.chdir modification
+         -> Allows ThinkStats code to load raw data files using
+            relative paths.
+
+    On macOS, local modules and datasets are loaded directly from
+    the repository structure.
+
+    On Windows, local modules are loaded from a local ThinkStats
+    folder and datasets from its local `data/` subfolder.
+
+    This allows the same notebook code to run unchanged on both
+    platforms.
+
+Usage:
+    This setup cell must be executed before all other notebook cells:
+
+        from pathlib import Path
+        import platform
+        import sys
+
+        if platform.system() == "Windows":
+            folder = Path(
+                r"C:\Users\starkvx\OneDrive - Abbott\Documents\Training Documentation\ThinkStats"
+            )
+
+            if str(folder) not in sys.path:
+                sys.path.append(str(folder))
+
+        import my_env_setup
+
+    The import of `my_env_setup` configures both the Python module
+    search path and the working directory used for ThinkStats data files.
 """
 
 import os
